@@ -247,7 +247,7 @@ function safe_add(x, y) {
     return (msw << 16) | (lsw & 0xFFFF);
 }
 
-function setvals() {
+function setVals() {
     var mypass = document.getElementById("main");
     document.getElementById("customRoot").setAttribute('value', mypass.value);
     mypass.value.length > 8 ? document.getElementById("symbol").removeAttribute("disabled") : document.getElementById('symbol').setAttribute("disabled", null);
@@ -259,11 +259,11 @@ function toggleType() {
     obj.type == 'text' ? obj.type = 'password' : obj.type = 'text';
 }
 
-function CopyClip() {
+function copyClip() {
   var copyText = document.getElementById("otpass");
   copyText.select();
   copyText.setSelectionRange(0, 99999); // For mobile
-  navigator.clipboard.writeText(copyText.value);
+  window.isSecureContext ? navigator.clipboard.writeText(copyText.value) : document.execCommand("copy");
 }
 
 window.onbeforeunload = () => {}; // This function stops the page being cached (so the back button won’t reveal passwords).
@@ -286,14 +286,13 @@ String.prototype.leetSpeak = function() {
     return newstr;
 }
 
-function updatePassword() {
-    setvals();
-    var pass = b64_sha256(document.ot.customRoot.value + ':' + document.ot.customSite.value).substr(0, 20);
+function updatePassword(length) {
+    setVals();
+    var pass = b64_sha256(document.ot.customRoot.value + ':' + document.ot.customSite.value).substr(0, length ?? 20);
     if (customRoot.value.length < 8 || customRoot.value == null)
         document.ot.otpassword.value = "";
     else
         document.ot.otpassword.value = document.getElementById("symbol").checked ? pass.leetSpeak() : pass;
-    return false;
 }
 
 </script>
@@ -301,17 +300,21 @@ function updatePassword() {
 
 <body onload="document.ot.reset();document.ot.main.focus();">
 <div class="container">
-    <form method="post" class="form-generator" name="ot" id="ot" onsubmit="updatePassword(); document.ot.otpassword.focus();">
+    <form method="post" class="form-generator" name="ot" id="ot" onsubmit="updatePassword(document.ot.length.value); document.ot.otpassword.focus();">
         <h3 class="form-generator-heading">Password Generator</h3>
-        <input type="password" tabindex="1" id="main" class="form-control" placeholder="Main password" enterkeyhint="enter" onkeyup="updatePassword();" autocapitalize="none" autofocus>
+        <input type="password" tabindex="1" id="main" class="form-control" placeholder="Main password" enterkeyhint="enter" onkeyup="updatePassword(document.ot.length.value);" autocapitalize="none" autofocus>
         <label class="checkbox">
         <input type="checkbox" id="show" value="show-password" onclick="toggleType();" tabindex="6"> Show password</label>
         <label class="checkbox">
-        <input type="checkbox" id="symbol" value="use-symbol" onclick="updatePassword();" tabindex="6" disabled> Use symbol</label>
+        <input type="checkbox" id="symbol" value="use-symbol" onclick="updatePassword(document.ot.length.value);" tabindex="6" disabled> Use symbol</label>
         <input id="customRoot" type="hidden" value="">
-        <input type="text" class="form-control site" name="customSite" id="custom" tabindex="2" onkeyup="updatePassword();" placeholder="Domain/Key" autocapitalize="none">
+        <label class="range">
+            Length <output name="passwordLength">20<br>
+            </output><input type="range" name="length" min="8" max="20" value="20" oninput="updatePassword(this.value);passwordLength.value=this.value">
+        </label>
+        <input type="text" class="form-control site" name="customSite" id="custom" tabindex="2" onkeyup="updatePassword(document.ot.length.value);" placeholder="Domain/Key" autocapitalize="none">
         <input type="text" class="form-control password" name="otpassword" id="otpass" tabindex="3" placeholder="" readonly>
-        <button class="btn btn-lg btn-primary btn-block" type="button" tabindex="4" onclick="CopyClip()">Copy</button>
+        <button class="btn btn-lg btn-primary btn-block" type="button" tabindex="4" onclick="copyClip()">Copy</button>
         <button class="btn btn-lg btn-danger btn-block" type="button" tabindex="5" onclick="window.location.href=window.location.href">Clear</button>
     </form>
 </div>
