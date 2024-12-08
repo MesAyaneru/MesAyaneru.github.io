@@ -1,0 +1,278 @@
+/*! Mobile CSS */
+html {font-size: 100%;}
+body{
+ font-family:"Helvetica Neue", "Segoe UI Variable Static Text", Helvetica, Arial, sans-serif;
+ line-height:1.4rem;
+ color:#111;
+ background-color:#D9D9DE;
+ padding-top: 0px;
+ padding-bottom: 40px;
+}
+/* Dark mode */
+@media (prefers-color-scheme: dark) {
+  body{ background-color:#bdbdc6;}
+}
+
+button,input{font-family:inherit;font-size:100%;margin:0;}
+button,input{line-height:normal;}
+button{text-transform:none;}
+button{-webkit-appearance:button;cursor:pointer;}
+input[type="checkbox"]{box-sizing:border-box;padding:0;}
+button::-moz-focus-inner,input::-moz-focus-inner{border:0;padding:0;}
+*,*:before,*:after{box-sizing:border-box;}
+input,button{font-family:inherit;font-size:inherit;line-height:inherit;}
+button,input{background-image:none;}
+@media print{
+*{text-shadow:none!important;color:#000!important;background:transparent!important;box-shadow:none!important;}
+h3{orphans:3;widows:3;}
+h3{page-break-after:avoid;}
+}
+h3{font-family:"Helvetica Neue", "Segoe UI Variable Static Text", Helvetica, Arial, sans-serif;font-weight:500;line-height:1.1;}
+h3{margin-top:0;margin-bottom:10px;}
+h3{font-size:1.5rem;}
+.container{margin-right:auto;margin-left:auto;padding-left:15px;padding-right:15px;}
+.container:before,.container:after{content:" ";display:table;}
+.container:after{clear:both;}
+.container:before,.container:after{content:" ";display:table;}
+.container:after{clear:both;}
+@media (min-width:768px){
+.container{max-width:750px;}
+}
+@media (min-width:992px){
+.container{max-width:970px;}
+}
+@media (min-width:1200px){
+.container{max-width:1170px;}
+}
+label{display:inline-block;margin-bottom:5px;font-weight:bold;}
+/* input[type="checkbox"]{margin:2px 4px 0;margin-top:1px \9;line-height:normal;}
+
+input[type="checkbox"]:focus{outline:thin dotted #333;outline:5px auto -webkit-focus-ring-color;outline-offset:-2px;} */
+
+.form-control:-moz-placeholder{color:#999999;}
+.form-control::-moz-placeholder{color:#999999;}
+.form-control:-ms-input-placeholder{color:#999999;}
+.form-control::-webkit-input-placeholder{color:#999999;}
+.form-control{
+	display:block;
+	width:100%;
+	height:34px;
+	padding:6px 14px;
+	font-size:0.875rem;
+	line-height:1.428571429;
+	color:#222222;
+	vertical-align:middle;
+	background-color:#ffffff;border:1px solid #cccccc;
+	border-radius:6px;-webkit-box-shadow:inset 0 1px 1px rgba(0, 0, 0, 0.075);
+	box-shadow:inset 0 1px 1px rgba(0, 0, 0, 0.075);
+	-webkit-transition:border-color ease-in-out .15s, 
+	box-shadow ease-in-out .15s;
+	transition:border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+}
+
+.form-control:focus{border-color:#66afe9;outline:0;-webkit-box-shadow:inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, 0.6);box-shadow:inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, 0.6);}
+.form-control[readonly]{cursor:not-allowed;background-color:#eeeeee;}
+
+.checkbox{
+display:block;
+min-height:20px;
+margin-top:10px;
+margin-bottom:10px;
+/*padding-left:20px;
+vertical-align:middle;*/
+}
+/*.checkbox input[type="checkbox"]{float:left;margin-left:-20px;} */
+
+.btn{display:inline-block;padding:6px 12px;margin-bottom:0;font-size:0.875rem;font-weight:normal;line-height:1.428571429;text-align:center;vertical-align:middle;cursor:pointer;border:1px solid transparent;border-radius:4px;white-space:nowrap;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;-o-user-select:none;user-select:none;}
+
+.btn:focus{outline:thin dotted #333;outline:5px auto -webkit-focus-ring-color;outline-offset:-2px;}
+.btn:hover,.btn:focus{color:#333333;text-decoration:none;}
+.btn:active{outline:0;background-image:none;-webkit-box-shadow:inset 0 3px 5px rgba(0, 0, 0, 0.125);box-shadow:inset 0 3px 5px rgba(0, 0, 0, 0.125);}
+.btn-primary{color:#ffffff;background-color:#428bca;border-color:#357ebd;margin-top: 10px;}
+.btn-primary:hover,.btn-primary:focus,.btn-primary:active{color:#ffffff;background-color:#3276b1;border-color:#285e8e;}
+.btn-primary:active{background-image:none;}
+.btn-danger{color:#141414;background-color:#1DB954;border-color:#488c31;margin-top: 10px;} /*#2f961e*/
+.btn-danger:hover,.btn-danger:focus,.btn-danger:active{color:#ffffff;background-color:#17A84A;border-color:#488c31;}
+.btn-danger:active{background-image:none;}
+.btn-lg{padding:10px 16px;font-size:1.125rem;line-height:1.33;border-radius:6px;}
+.btn-block{display:block;width:100%;padding-left:0;padding-right:0;}
+.btn-len{display:block;width:100%;padding-left:0;padding-right:0;}
+.btn-len:active{background-image:none;}
+/*.btn-block+.btn-block{margin-top:5px;}*/
+
+.form-generator{max-width:330px;padding:10px;margin:0 auto;}
+.form-generator .form-generator-heading,.form-generator .checkbox{margin-bottom:10px;}
+.form-generator .checkbox{font-weight:normal;}
+
+.form-generator .form-control {
+  position: relative;
+  font-size: 1.125rem;
+  height: auto;
+  padding: 10px;
+  box-sizing: border-box;
+}
+.form-generator .form-control:focus{z-index:2;}
+.form-generator .site {
+  margin-bottom: -1px;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.form-generator .password {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+#main, #custom{
+  border-top: 1px solid #7c7c7c;
+  border-left: 1px solid #ACB5BE;
+  border-right: 1px solid #ACB5BE;
+  border-bottom: 1px solid #ddd;
+  box-shadow: inset #ccc 0px 1px 0px;
+}
+
+/* slider */
+#show {
+  appearance: none;
+  position: relative;
+  display: inline-block;
+  background: #30a91f;
+  height: 1.1rem;
+  width: 2.16rem;
+  vertical-align: middle;
+  border-radius: 2rem;
+  box-shadow: 0px 1px 3px #2521ade0 inset;
+  transition: 0.12s linear background;
+}
+
+#show:checked::before {
+  transform: translateX(1rem);
+}
+
+#show::before {
+  content: "";
+  display: block;
+  width: 0.74rem;
+  height: 0.74rem;
+  background: #f8f9f9;
+  border-radius: 1.2rem;
+  position: absolute;
+  top: 0.2rem;
+  left: 0.2rem;
+  box-shadow: 0px 1px 3px #282aa033;
+  transform: translateX(0rem);
+   /*transition: 0.1s linear transform;*/
+	transition: transform 0.15s cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+#show:checked {
+  background: #e70d0d;
+}
+
+#show:focus {
+    outline-color: dodgerblue;
+}
+
+/* slider */
+#symbol {
+    appearance: none;
+    position: relative;
+    display: inline-block;
+    background: #e70d0d;
+    height: 1.1rem;
+    width: 2.16rem;
+    vertical-align: middle;
+    border-radius: 2rem;
+    box-shadow: 0px 1px 3px #2521ade0 inset;
+    transition: 0.12s linear background;
+}
+  
+#symbol:checked::before {
+    transform: translateX(1rem);
+}
+
+#symbol::before {
+    content: "";
+    display: block;
+    width: 0.74rem;
+    height: 0.74rem;
+    background: #f8f9f9;
+    border-radius: 1.2rem;
+    position: absolute;
+    top: 0.2rem;
+    left: 0.2rem;
+    box-shadow: 0px 1px 3px #282aa033;
+    transform: translateX(0rem);
+     /*transition: 0.1s linear transform;*/
+    transition: transform 0.15s cubic-bezier(0.65, 0, 0.35, 1);
+  }
+
+  #symbol:checked {
+    background: #30a91f; 
+  }
+
+  #symbol:disabled {
+    background: #808080;
+  }
+  
+  #show:focus {
+      outline-color: dodgerblue;
+  }
+
+/*********** Baseline, reset styles ***********/
+input[type="range"] {
+    -webkit-appearance: none;
+    appearance: none;
+    background: transparent;
+    cursor: pointer;
+    width: 310px;
+}
+  
+/* Removes default focus */
+input[type="range"]:focus {
+    outline: none;
+}
+
+/******** Chrome, Safari, Opera and Edge Chromium styles ********/
+/* slider track */
+input[type="range"]::-webkit-slider-runnable-track {
+    background-color: #080808;
+    border-radius: 0.5rem;
+    height: 0.5rem;
+}
+
+/* slider thumb */
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none; /* Override default look */
+    appearance: none;
+    margin-top: -4px; /* Centers thumb on the track */
+    background-color: #ffffff;
+    border-radius: 0.5rem;
+    height: 1rem;
+    width: 10%;
+}
+
+input[type="range"]:focus::-webkit-slider-thumb {
+    outline: none;
+}
+
+/*********** Firefox styles ***********/
+/* slider track */
+input[type="range"]::-moz-range-track {
+    background-color: #080808;
+    border-radius: 0.5rem;
+    height: 0.5rem;
+}
+
+/* slider thumb */
+input[type="range"]::-moz-range-thumb {
+    background-color: #ffffff;
+    border: none; /*Removes extra border that FF applies*/
+    border-radius: 0.5rem;
+    height: 1rem;
+    width: 10%;
+}
+
+input[type="range"]:focus::-moz-range-thumb{
+    outline: none;
+}
